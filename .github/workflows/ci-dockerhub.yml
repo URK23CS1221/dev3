@@ -33,7 +33,7 @@ jobs:
       - name: Run tests
         run: |
                 export PYTHONPATH=$PYTHONPATH:$(pwd)/python-ci-docker-lab
-                pytest -q
+                pytest python-ci-docker-lab/tests/ -q
 
       - name: Docker meta
         id: meta
@@ -57,7 +57,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./python-ci-docker-lab
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
