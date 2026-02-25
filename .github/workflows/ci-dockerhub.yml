@@ -31,7 +31,9 @@ jobs:
           pip install -r python-ci-docker-lab/requirements.txt
 
       - name: Run tests
-        run: pytest -q
+        run: |
+                export PYTHONPATH=$PYTHONPATH:$(pwd)/python-ci-docker-lab
+                pytest -q
 
       - name: Docker meta
         id: meta
