@@ -32,8 +32,8 @@ jobs:
 
       - name: Run tests
         run: |
-                export PYTHONPATH=$PYTHONPATH:$(pwd)/python-ci-docker-lab
-                pytest python-ci-docker-lab/tests/ -q
+                cd python-ci-docker-lab
+                pytest -q
 
       - name: Docker meta
         id: meta
